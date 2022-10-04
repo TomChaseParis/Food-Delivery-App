@@ -12,4 +12,6 @@ In the project directory, you can run:
 ### Steps
 
 *** Header Component Section
+*** Bottom Menu Component Section
+*** Main Component
 
