@@ -6,6 +6,9 @@ import './App.css';
 import BannerName from './components/BannerName';
 import Header from './components/Header';
 import MenuContainer from './components/MenuContainer';
+import SubMenuContainer from './components/SubMenuContainer';
+import MenuCard from './components/MenuCard';
+import { MenuItems, Items } from './components/Data';
 
 function App() {
 
@@ -18,6 +21,16 @@ function App() {
     }
     
     menuLi.forEach(n => n.addEventListener('click', setMenuActive))
+
+    // Menucard Active toggle
+    const menuCards = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
+
+    function setMenuCardActive() {
+      menuCards.forEach(n => n.classList.remove('active'));
+      this.classList.add('active')
+    }
+
+    menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
   }, [])
 
 
@@ -33,7 +46,23 @@ function App() {
         <div className='banner'>
           <BannerName name={"Tom Chase Paris"} discount={"20"} link={"#"} />
           <img className='deliveryPic' src={DeliveryPic} alt='banner' />
+        </div>
 
+        {/* DishContainer */}
+        <div className='dishContainer'>
+          <div className='menuCard'>
+            <SubMenuContainer name={"Menu Category"} />
+          </div>
+          <div className='rowContainer'>
+            {
+              MenuItems && MenuItems.map(data => (
+                <div key={data.id}>
+                <MenuCard imgSrc={data.imgSrc}  name={data.name} isActive = {data.id === 1 ? true : false} />
+              </div>   
+              ))
+            }
+          </div>
+          <div className='dishitemContainer'></div>
         </div>
       </div>
       <div className='rightMenu'></div>

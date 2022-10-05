@@ -13,5 +13,6 @@ In the project directory, you can run:
 
 *** Header Component Section
 *** Bottom Menu Component Section
-*** Main Component
+*** Main Component Section
+*** Menu Card Component Section
 
