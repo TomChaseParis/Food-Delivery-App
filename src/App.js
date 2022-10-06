@@ -1,7 +1,7 @@
 import { AccountBalanceWalletRounded, Chat, Favorite, HomeRounded, Settings, SummarizeRounded } from '@mui/icons-material';
 import React from 'react';
 import DeliveryPic from './assets/img/delivery.png';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import BannerName from './components/BannerName';
 import Header from './components/Header';
@@ -12,6 +12,11 @@ import { MenuItems, Items } from './components/Data';
 import ItemCard from './components/ItemCard';
 
 function App() {
+
+  // Main Dish State 
+  const [isMainData, setMainData] = useState(
+    Items.filter((element) => element.itemId == "buger01")
+  );
 
   useEffect(() => {
     const menuLi = document.querySelectorAll('#menu li');
@@ -32,8 +37,13 @@ function App() {
     }
 
     menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
-  }, [])
+  }, [isMainData]);
 
+  // set main dish items on filter
+  const setData = (itemId) => {
+    setMainData(Items.filter((element) => element.itemId == itemId)
+    )
+  }
 
   return (
     <div className="App">
@@ -52,23 +62,35 @@ function App() {
         {/* DishContainer */}
         <div className='dishContainer'>
           <div className='menuCard'>
-            <SubMenuContainer name={"Menu Category"} />
+            <SubMenuContainer name={'Menu Category'} />
           </div>
           <div className='rowContainer'>
             {
-              MenuItems && MenuItems.map(data => (
-                <div key={data.id}>
-                <MenuCard imgSrc={data.imgSrc}  name={data.name} isActive = {data.id === 1 ? true : false} />
+              MenuItems && MenuItems.map((data => (
+                <div key={data.id} onClick = { () => setData(data.itemId) }>
+                <MenuCard 
+                    imgSrc={data.imgSrc}
+                    name={data.name}
+                    isActive = {data.id === 1 ? true : false} />
               </div>   
-              ))
+              )))
             }
           </div>
-          <div className='dishitemContainer'>
-            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
-            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
-            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
 
-          </div>
+          {/* dishitemContainer */}
+          <div className="dishItemContainer">
+              {isMainData &&
+                isMainData.map((data) => (
+                  <ItemCard
+                    key={data.id}
+                    itemId= {data.id}
+                    imgSrc={data.imgSrc}
+                    name={data.name}
+                    ratings={data.ratings}
+                    price={data.price}
+                  />
+                ))}
+            </div>
         </div>
       </div>
       <div className='rightMenu'></div>

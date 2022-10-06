@@ -1,6 +1,5 @@
 .App {
   width: 100vw;
-  height: 100vh;
   background-color: #faf9fb;
   overflow: hidden;
 }
@@ -480,7 +479,7 @@ main {
 
 /* itemCard */
 
-.dishitemContainer {
+.dishItemContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -517,6 +516,7 @@ main {
 }
 
 .itemCard .imgBox {
+  position: absolute;
   width: 100px;
   height: 100px;
   border-radius: 100vw;
@@ -524,7 +524,6 @@ main {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  position: absolute;
   top: -10px;
 }
 
@@ -541,12 +540,12 @@ main {
 }
 
 .itemContent {
-  background-color: white;
-  box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
-  border-radius: 15px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
   padding: 10px;
   padding-top: 50px;
-  width: 100%;
+  border-radius: 15px;
 }
 
 .itemContent .itemName {
@@ -564,11 +563,45 @@ main {
   font-size: 16px;
 }
 
+.orange {
+  color: #f8901c !important;
+}
+
+.gray {
+  color: #373848 !important;
+}
+
 .itemContent .bottom .price {
   font-size: 16px;
 }
 
 .itemContent .bottom .price span {
+  color: #f8901c;
+  font-size: 12px;
+}
+
+.itemContent .addtoCart {
+  background: #f8901c;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.itemContent .addtoCart .MuiSvgIcon-root {
+  color: #faf9fb;
+  font-size: 16px;
+}
+
+.itemContent .bottom .price {
+  font-size: 16px;
+}
+
+itemContent .bottom .price span {
   color: #f8901c;
   font-size: 12px;
 }
@@ -588,5 +621,5 @@ main {
 .itemContent .addtoCart .MuiSvgIcon-root {
   color: #faf9fb;
   font-size: 16px;
-}
 
+}
