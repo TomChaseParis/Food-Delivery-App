@@ -9,6 +9,7 @@ import MenuContainer from './components/MenuContainer';
 import SubMenuContainer from './components/SubMenuContainer';
 import MenuCard from './components/MenuCard';
 import { MenuItems, Items } from './components/Data';
+import ItemCard from './components/ItemCard';
 
 function App() {
 
@@ -62,7 +63,12 @@ function App() {
               ))
             }
           </div>
-          <div className='dishitemContainer'></div>
+          <div className='dishitemContainer'>
+            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
+            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
+            <ItemCard imgSrc={"https://www.pngkey.com/png/full/44-449106_crispy-stack-burger-with-chips-french-fries.png"} name={'Burger Bistro'} ratings={5} price={'7.5'} />
+
+          </div>
         </div>
       </div>
       <div className='rightMenu'></div>

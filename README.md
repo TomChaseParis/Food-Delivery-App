@@ -15,4 +15,7 @@ In the project directory, you can run:
 *** Bottom Menu Component Section
 *** Main Component Section
 *** Menu Card Component Section
+*** Item Card Component Section
+*** Favourite Dish Section
+
 
