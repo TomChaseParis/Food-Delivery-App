@@ -1,5 +1,7 @@
 # Food Delivery App
 
+## Food Delivery APP using React, Redux, Firebase & Material-UI... 👇
+
 ## Installation
 
 In the project directory, you can run:
@@ -11,11 +13,12 @@ In the project directory, you can run:
 
 ### Steps
 
-*** Header Component Section
-*** Bottom Menu Component Section
-*** Main Component Section
-*** Menu Card Component Section
-*** Main Item Card Component Section
-*** Favourite Dish Section
+### Header Component Section
+### Bottom Menu Component Section
+### Main Component Section
+### Menu Card Component Section
+### Main Item Card Component Section
+### Favourite Dish Section
+### Rating Component Section
 
 

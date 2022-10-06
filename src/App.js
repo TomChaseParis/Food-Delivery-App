@@ -67,7 +67,7 @@ function App() {
           <div className='rowContainer'>
             {
               MenuItems && MenuItems.map((data => (
-                <div key={data.id} onClick = { () => setData(data.itemId) }>
+                <div key={data.id} onClick = { () => setData(data.itemId  ) }>
                 <MenuCard 
                     imgSrc={data.imgSrc}
                     name={data.name}
