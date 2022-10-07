@@ -2,6 +2,9 @@
 
 ## Food Delivery APP using React, Redux, Firebase & Material-UI... 👇
 
+<img width="1339" alt="Capture d’écran 2022-10-07 à 17 55 11" src="https://user-images.githubusercontent.com/100563372/194596790-1e577180-9c94-423f-a662-661165ab7b44.png">
+
+
 ## Installation
 
 ### `npx create-react-app ./`
