@@ -10,6 +10,7 @@ import SubMenuContainer from './components/SubMenuContainer';
 import MenuCard from './components/MenuCard';
 import { MenuItems, Items } from './components/Data';
 import ItemCard from './components/ItemCard';
+import DebitCard from './components/DebitCard';
 
 function App() {
 
@@ -93,7 +94,13 @@ function App() {
             </div>
         </div>
       </div>
-      <div className='rightMenu'></div>
+      <div className='rightMenu'>
+        <div className='debitCardContainer'>
+          <div className='debitCard'>
+              <DebitCard />
+          </div>
+        </div>
+      </div>
      </main>
 
      {/* Bottom Menu */}

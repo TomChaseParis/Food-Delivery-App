@@ -20,5 +20,6 @@ In the project directory, you can run:
 ### Main Item Card Component Section
 ### Favourite Dish Section
 ### Rating Component Section
+### Right Menu Compoment Section
 
 
