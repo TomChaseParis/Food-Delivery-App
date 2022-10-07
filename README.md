@@ -23,6 +23,7 @@
 ### Create a StateProvider
 ### Import a reducer
 ### Updating Quantity & Prices
+### Making Responsive Design
 
 
 
