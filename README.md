@@ -9,7 +9,7 @@
 ### `npm install @emotion/react @emotion/styled`
 ### `npm start`
 
-### Steps
+### Steps of Application
 
 ### Header Component Section
 ### Bottom Menu Component Section
@@ -20,5 +20,9 @@
 ### Rating Component Section
 ### Right Menu Compoment Section
 ### CartItem Component Section
+### Create a StateProvider
+### Import a reducer
+### Updating Quantity & Prices
+
 
 

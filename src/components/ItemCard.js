@@ -1,13 +1,31 @@
 import { AddRounded, Favorite, StarRounded } from '@mui/icons-material'
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useStateValue } from './StateProvider';
 import { Items } from './Data';
+import { actionType } from './reducer';
+let cartData = []
+
 
 function ItemCard({ imgSrc, name, ratings, price, itemId }) {
 
 const [isFavourite, setFavourite] = useState(false);
-const [currentValue, setCurrentValue] = useState(Math.floor(ratings))
-const [isCart, setCart] = useState(null);
+const [currentValue, setCurrentValue] = useState(Math.floor(ratings));
+
+const [{}, dispatch] = useStateValue();
+const [isCart, setCart] = useState(null); // from the StateProvider
+
+
+// useEffect for add carts to basket
+useEffect(() => {
+  if (isCart) {
+    cartData.push(isCart);
+    dispatch({
+      type: actionType.SET_CART,
+      cart: cartData,
+    });
+  }
+}, [isCart]);
 
 
 const handleClick = (value) => {
@@ -61,4 +79,4 @@ return (
   
 }
 
-export default ItemCard
+export default ItemCard;

@@ -1,7 +1,42 @@
 import { AddRounded, RemoveRounded } from '@mui/icons-material'
-import React from 'react'
+import React from 'react';
+import { useStateValue } from './StateProvider';
+import { useState, useEffect } from 'react';
+import { actionType } from './reducer';
+let cartData = []
 
-function CartItem({ name, imgSrc, qty, price }) {
+let cartItems = []
+
+function CartItem({ name, imgSrc, price, itemId }) {
+
+    const [qty, setQty] = useState(1);
+    const [{cart}, dispatch] = useStateValue()
+
+    // Calculate amount basket burgers
+    const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
+
+    useEffect(() => {
+        cartItems = cart;
+        setItemPrice(parseInt(qty) * parseFloat(price));
+    }, [qty])
+
+
+    // Function for to Add and Remove burgers in basket
+    const updateQuantity = (action, id) => {
+        if (action == "add") {
+          setQty(qty + 1);
+        } else {
+            if(qty == 1) {
+                cartItems.pop(id);
+                dispatch({
+                    type: actionType.SET_CART,
+                    cart: cartData,
+                })
+            }
+            setQty(qty - 1)   
+        }
+        };
+
   return (
     <div className='cardItem'>
         <div className='imgBox'>
@@ -13,16 +48,16 @@ function CartItem({ name, imgSrc, qty, price }) {
             <div className='itemQuantity'>
                 <span>x {qty}</span>
                 <div className='quantity'>
-                    <RemoveRounded className='itemRemove' />
+                    <RemoveRounded className='itemRemove' onClick={() => updateQuantity('remove', itemId)} />
 
-                    <AddRounded className='itemAdd' />
+                    <AddRounded className='itemAdd' onClick={() => updateQuantity('add', itemId)} />
                 </div>
             </div>
         </div>
 
         <p className='itemPrice'>
             <span className='dolorSign'>$ </span>
-            <span className='itemPriceValue'>{price}</span>
+            <span className='itemPriceValue'>{itemPrice}</span>
         </p>
     </div>
     

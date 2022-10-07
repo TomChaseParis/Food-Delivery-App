@@ -6,12 +6,13 @@ import { BarChart, SearchRounded, ShoppingCart, ShoppingCartRounded } from '@mui
 function Header() {
 
     useEffect(() => {
-        const toggleMenu = document.querySelector('.toggleMenu');
-
-        toggleMenu.addEventListener('click', () => {
-            document.querySelector('.rightMenu').classList.toggle('active');
+        const toggleIcon = document.querySelector(".toggleMenu");
+        toggleIcon.addEventListener("click", () => {
+          document.querySelector(".rightMenu").classList.toggle("active");
         });
+        console.log('CLICK')
     }, []);
+    
 
   return (
     <header>

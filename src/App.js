@@ -12,6 +12,7 @@ import { MenuItems, Items } from './components/Data';
 import ItemCard from './components/ItemCard';
 import DebitCard from './components/DebitCard';
 import CartItem from './components/CartItem';
+import { useStateValue } from './components/StateProvider';
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
   const [isMainData, setMainData] = useState(
     Items.filter((element) => element.itemId == "buger01")
   );
+
+  const[{cart}, dispatch] = useStateValue()
 
   useEffect(() => {
     const menuLi = document.querySelectorAll('#menu li');
@@ -39,7 +42,7 @@ function App() {
     }
 
     menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
-  }, [isMainData]);
+  }, [isMainData, cart]);
 
   // set main dish items on filter
   const setData = (itemId) => {
@@ -111,21 +114,31 @@ function App() {
               <DebitCard />
           </div>
         </div>
-        <div className='cartCheckOutContainer'>
-          <div className='cartCoontainer'>
-            <SubMenuContainer name={"Carts Items"} />
 
 
+        {/* cartCheckOutContainer */}
+        {!cart ? (
+            <div></div>
+          ) : (
+            <div className="cartCheckOutContianer">
+              <div className="cartContainer">
+                <SubMenuContainer />
             {/* cartItem  */}      
             <div className='cartItems'>
-              <CartItem
-                name={'Burger Bistro'}
-                imgSrc={'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0'}
-                qty={'4'}
-                price={'7.95'}
+              {
+                cart && cart.map((data => (
+                   <CartItem
+                    key = {data.id}
+                    itemId = {data.id}
+                    name={data.name}
+                    imgSrc={data.imgSrc }
+                     price={data.price}
               /> 
+                )))
+              }
+              
             </div>
-
+            {/* totalSection */}
             <div className='totalSection'>
               <h3>Total</h3>
               <p><span>$ </span>45.0</p>
@@ -134,6 +147,7 @@ function App() {
             <button className='checkOut'>Check Out</button>
           </div>
         </div>
+          )}
       </div>
      </main>
 
