@@ -4,8 +4,6 @@
 
 ## Installation
 
-In the project directory, you can run:
-
 ### `npx create-react-app ./`
 ### `npm install @mui/icons-material`
 ### `npm install @emotion/react @emotion/styled`
@@ -21,5 +19,6 @@ In the project directory, you can run:
 ### Favourite Dish Section
 ### Rating Component Section
 ### Right Menu Compoment Section
+### CartItem Component Section
 
 

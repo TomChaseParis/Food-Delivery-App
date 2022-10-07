@@ -1,8 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import {} from '@mui/material';
 import { BarChart, SearchRounded, ShoppingCart, ShoppingCartRounded } from '@mui/icons-material';
 
 function Header() {
+
+    useEffect(() => {
+        const toggleMenu = document.querySelector('.toggleMenu');
+
+        toggleMenu.addEventListener('click', () => {
+            document.querySelector('.rightMenu').classList.toggle('active');
+        });
+    }, []);
+
   return (
     <header>
         <img className='logo' src='https://img.freepik.com/premium-vector/burger-logo-vector-art-design_260747-248.jpg?w=2000' />

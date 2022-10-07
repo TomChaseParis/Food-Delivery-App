@@ -11,6 +11,7 @@ import MenuCard from './components/MenuCard';
 import { MenuItems, Items } from './components/Data';
 import ItemCard from './components/ItemCard';
 import DebitCard from './components/DebitCard';
+import CartItem from './components/CartItem';
 
 function App() {
 
@@ -47,9 +48,13 @@ function App() {
   }
 
   return (
+
+
     <div className="App">
      {/* Header Section */}
      <Header />
+
+
 
      {/* Main Container */}
      <main>
@@ -59,6 +64,8 @@ function App() {
           <BannerName name={"Tom Chase Paris"} discount={"20"} link={"#"} />
           <img className='deliveryPic' src={DeliveryPic} alt='banner' />
         </div>
+
+
 
         {/* DishContainer */}
         <div className='dishContainer'>
@@ -78,6 +85,7 @@ function App() {
             }
           </div>
 
+
           {/* dishitemContainer */}
           <div className="dishItemContainer">
               {isMainData &&
@@ -94,10 +102,36 @@ function App() {
             </div>
         </div>
       </div>
+
+
+      {/* DebitCardContainer */}
       <div className='rightMenu'>
         <div className='debitCardContainer'>
           <div className='debitCard'>
               <DebitCard />
+          </div>
+        </div>
+        <div className='cartCheckOutContainer'>
+          <div className='cartCoontainer'>
+            <SubMenuContainer name={"Carts Items"} />
+
+
+            {/* cartItem  */}      
+            <div className='cartItems'>
+              <CartItem
+                name={'Burger Bistro'}
+                imgSrc={'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0'}
+                qty={'4'}
+                price={'7.95'}
+              /> 
+            </div>
+
+            <div className='totalSection'>
+              <h3>Total</h3>
+              <p><span>$ </span>45.0</p>
+            </div>
+
+            <button className='checkOut'>Check Out</button>
           </div>
         </div>
       </div>
